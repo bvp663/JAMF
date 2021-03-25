@@ -26,9 +26,9 @@ in_array() {
 ZScaler=("1.234" "49.236" "58.220" "64.215" "89.167" "94.188" "104.129" "112.137" "124.248" "154.113" "165.225" "175.45" "185.46" "196.23" "197.98" "197.156" "199.168" "211.144" "213" "221.122");
 
 #If then statement to see if IP matches Company IP range or any of the ZScaler ranges listed in the array
-if [[ "$CacheServerIP" == BACKHAULOCTET.* ]] || [[ "$CacheServerIP" == BACKHAUOCTET.* ]]; then
-        echo '<result>NetworkBackhaul</result>'
+if [[ "$CacheServerIP" == BACKHAULOCTET.* || "$CacheServerIP" == BACKHAUOCTET.* ]]; then
+        echo "<result>NetworkBackhaul</result>"
 elif in_array ZScaler "$CacheServerIP" ; then
-        echo '<result>ZScaler</result>' ; else
-echo '<result>LocalEgress</result>'
+        echo "<result>ZScaler</result>" ; else
+echo "<result>LocalEgress</result>"
 fi
